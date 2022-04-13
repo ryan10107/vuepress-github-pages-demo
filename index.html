@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vuepress github pages 利用github action部署 | vuepress利用github actions部署github pages</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/vuepress-github-pages-demo/assets/css/0.styles.09087e53.css" as="style"><link rel="preload" href="/vuepress-github-pages-demo/assets/js/app.11b0473d.js" as="script"><link rel="preload" href="/vuepress-github-pages-demo/assets/js/2.7b40e991.js" as="script"><link rel="preload" href="/vuepress-github-pages-demo/assets/js/7.7fa71522.js" as="script"><link rel="prefetch" href="/vuepress-github-pages-demo/assets/js/3.5f70ea5a.js"><link rel="prefetch" href="/vuepress-github-pages-demo/assets/js/4.ae4a53d0.js"><link rel="prefetch" href="/vuepress-github-pages-demo/assets/js/5.7b30fcaa.js"><link rel="prefetch" href="/vuepress-github-pages-demo/assets/js/6.c2d6f66e.js"><link rel="prefetch" href="/vuepress-github-pages-demo/assets/js/8.f752e4ac.js">
+    <link rel="stylesheet" href="/vuepress-github-pages-demo/assets/css/0.styles.09087e53.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepress-github-pages-demo/" aria-current="page" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">vuepress利用github actions部署github pages</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/vuepress-github-pages-demo/intro.html" class="sidebar-link">测试</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vuepress-github-pages-利用github-action部署"><a href="#vuepress-github-pages-利用github-action部署" class="header-anchor">#</a> vuepress github pages 利用github action部署</h1> <ol><li>复制该项目文件夹</li> <li>修改package.json的name</li> <li>build.sh是用来自己手动部署gh-pages的，有需要用到需要修改</li></ol> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">git</span> push -f git@github.com:ryan10107/vuepress-github-pages-demo.git master:gh-pages
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>github action的部署文件 vuepress-deploy.yml</li></ol> <div class="language-yml line-numbers-mode"><pre class="language-yml"><code><span class="token key atrule">TARGET_REPO</span><span class="token punctuation">:</span> ryan10107/vuepress<span class="token punctuation">-</span>github<span class="token punctuation">-</span>pages<span class="token punctuation">-</span>demo
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="5"><li>docs/.vuepress/config.js的</li></ol> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token operator">:</span> <span class="token string">'vuepress-github-pages-demo'</span><span class="token punctuation">,</span>
+  description<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  base<span class="token operator">:</span> <span class="token string">'/vuepress-github-pages-demo/'</span><span class="token punctuation">,</span> <span class="token comment">// 这是部署到github相关的配置 下面会讲</span>
+  markdown<span class="token operator">:</span> <span class="token punctuation">{</span>
+    lineNumbers<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token comment">// 代码块显示行号</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  themeConfig<span class="token operator">:</span> <span class="token punctuation">{</span>
+    sidebar<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'/intro'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ol start="7"><li>一定要创建一个Access Tokens</li></ol> <ul><li>settings</li> <li>Developer settings</li> <li>Personal access tokens 创建token后，记录该token值</li></ul> <ol start="8"><li>回到项目主页https://github.com/ryan10107/vuepress-github-pages-demo/settings</li></ol> <ul><li>Secrets</li> <li>Actions</li> <li>New Repository Secrect</li> <li>Name填ACCESS_TOKEN（这里对应vuepress-deploy.yml的ACCESS_TOKEN）</li> <li>Value填入第5步创建的Access tokens的值</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/vuepress-github-pages-demo/assets/js/app.11b0473d.js" defer></script><script src="/vuepress-github-pages-demo/assets/js/2.7b40e991.js" defer></script><script src="/vuepress-github-pages-demo/assets/js/7.7fa71522.js" defer></script>
+  </body>
+</html>
