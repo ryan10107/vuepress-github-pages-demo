@@ -30,7 +30,7 @@ module.exports = {
   - settings
   - Developer settings
   - Personal access tokens 创建token后，记录该token值
-7. 回到项目主页https://github.com/ryan10107/vuepress-github-pages-demo/settings
+8. 回到项目主页https://github.com/ryan10107/vuepress-github-pages-demo/settings
   - Secrets
   - Actions
   - New Repository Secrect
